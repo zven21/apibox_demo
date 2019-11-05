@@ -18,6 +18,7 @@ defmodule ApiboxDemoWeb.Router do
 
     get "/", PageController, :index
     resources "/posts", PostController
+    resources "/books", BookController
   end
 
   # Other scopes may use custom stacks.
