@@ -17,12 +17,12 @@ defmodule ApiboxDemoWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    resources "/posts", PostController
   end
 
   # Other scopes may use custom stacks.
   scope "/api", ApiboxDemoWeb do
     pipe_through :api
+    resources "/posts", PostController
     resources "/books", BookController
   end
 end
