@@ -6,9 +6,9 @@ defmodule ApiboxDemoWeb.BookController do
 
   action_fallback ApiboxDemoWeb.FallbackController
 
-  def index(conn, _params) do
-    books = Books.list_books()
-    render(conn, "index.json", books: books)
+  def index(conn, params) do
+    result = Book |> Turbo.Ecto.turbo(params)
+    render(conn, "index.json", books: result.entries, paginate: result.paginate)
   end
 
   def create(conn, %{"book" => book_params}) do
