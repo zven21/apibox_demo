@@ -23,6 +23,9 @@ defmodule ApiboxDemoWeb.Router do
   scope "/api", ApiboxDemoWeb do
     pipe_through :api
     resources "/posts", PostController
-    resources "/books", BookController
+    # resources "/books", BookController
+    get "/book/list", BookController, :index
+    get "/book/detail", BookController, :show
+    post "/book/create", BookController, :create
   end
 end
